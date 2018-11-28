@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity  {
 
             // ************************************************
             // INICIO - CODE1
+            /*
 
             Log.d("DEBUG", "Begin query");
 
@@ -146,6 +147,7 @@ public class MainActivity extends AppCompatActivity  {
                             String password_bd = (String) object.get("password");
                             if (password_text.equals(password_bd)) {
                                 Log.d("DEBUG", "End results");
+
                                 Log.d("DEBUG", "Set breakpoint 1");
                                 Intent intent;
 
@@ -174,7 +176,7 @@ public class MainActivity extends AppCompatActivity  {
                 }
             });
             Log.d("DEBUG", "End query");
-
+            */
 
             // FIN - CODE1
             // ************************************************************************
@@ -185,45 +187,46 @@ public class MainActivity extends AppCompatActivity  {
 //
 //            // ************************************************************************
 //            // INICIO - CODE2
-//            //
-//
-//            Log.d("DEBUG","Begin query");
-//            DataQuery query = DataQuery.get("user");
-//            ArrayList<DataObject> dataObjects = query.find("email", email, DataQuery.OPERATOR_EQUAL);
-//              Log.d("DEBUG", "Results");
-//            if (dataObjects.size() != 0) {
-//                DataObject object = dataObjects.get(0);
-//                String password_text =  mPasswordView.getText().toString();
-//                String password_bd = (String) object.get("password");
-//                if(password_text.equals(password_bd)){
-//                    Log.d("DEBUG", "End results");
-//                    Log.d("DEBUG", "Set breakpoint 2");
-//
-//                    Intent intent;
-//
-//                    intent = new Intent(MainActivity.this, ResultsActivity.class);
-//
-//                    // Pass parameters to new activity
-//                    intent.putExtra("user_id",  object.m_objectId);
-//                    intent.putExtra("user_email", (String) object.get("email"));
-//
-//                    startActivity(intent);
-//                    finish();
-//                }
-//                else{
-//                    mPasswordView.setError(getString(R.string.error_incorrect_password));
-//                    mPasswordView.requestFocus();
-//                    showProgress(false);
-//                }
-//            }
-//            else{
-//                mPasswordView.setError(getString(R.string.error_incorrect_password));
-//                mPasswordView.requestFocus();
-//                showProgress(false);
-//            }
-//             Log.d("DEBUG", "End query");
-//
-//
+
+
+            Log.d("DEBUG","Begin query");
+            DataQuery query = DataQuery.get("user");
+            ArrayList<DataObject> dataObjects = query.find("email", email, DataQuery.OPERATOR_EQUAL);
+              Log.d("DEBUG", "Results");
+            if (dataObjects.size() != 0) {
+                DataObject object = dataObjects.get(0);
+                String password_text =  mPasswordView.getText().toString();
+                String password_bd = (String) object.get("password");
+                if(password_text.equals(password_bd)){
+                    Log.d("DEBUG", "End results");
+
+                    Log.d("DEBUG", "Set breakpoint 2");
+
+                    Intent intent;
+
+                    intent = new Intent(MainActivity.this, ResultsActivity.class);
+
+                    // Pass parameters to new activity
+                    intent.putExtra("user_id",  object.m_objectId);
+                    intent.putExtra("user_email", (String) object.get("email"));
+
+                    startActivity(intent);
+                    finish();
+                }
+                else{
+                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                    mPasswordView.requestFocus();
+                    showProgress(false);
+                }
+            }
+            else{
+                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                mPasswordView.requestFocus();
+                showProgress(false);
+            }
+             Log.d("DEBUG", "End query");
+
+
 //            // FIN - CODE2
 //            // ************************************************************************
 //

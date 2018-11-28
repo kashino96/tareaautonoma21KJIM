@@ -16,7 +16,14 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_find">FindActivity</string>
+    <string name="precioplay">$ 350</string>
+    <string name="precioXbox">$ 280</string>
+    <string name="precioskate">$ 90</string>
 
     <!-- ACTIVITY DETAIL  -->
     <string name="image_label">IMAGEN:</string>
+    <string name="nombre">NOMBRE:</string>
+    <string name="precio" >PRECIO: </string>
+    <string name="descripcion">DESCRIPCION:</string>
+
 </resources>

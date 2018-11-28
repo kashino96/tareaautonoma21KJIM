@@ -59,6 +59,13 @@ public class ResultListAdapter extends BaseAdapter {
         // INICIO - CODE4
 
 
+        TextView precio = (TextView)vp.findViewById(R.id.price);
+        precio.setText((String) object.get("price"));
+        
+
+
+
+
         // FIN - CODE4
         // ************************************************************************
 

@@ -1,5 +1,6 @@
 package facci.pm.ta2.poo.pra1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,7 +42,7 @@ public class ResultsActivity extends AppCompatActivity implements  ListView.OnIt
         // INICIO - CODE3
         //
         DataQuery query = DataQuery.get("item");
-        query.findInBackground("", "", DataQuery.OPERATOR_ALL, new FindCallback<DataObject>() {
+        query.findInBackground("Object_id", "", DataQuery.OPERATOR_ALL, new FindCallback<DataObject>() {
             @Override
             public void done(ArrayList<DataObject> dataObjects, DataException e) {
                 if (e == null) {
@@ -73,7 +74,18 @@ public class ResultsActivity extends AppCompatActivity implements  ListView.OnIt
 
         // INICIO - CODE5
         //
-        DataObject object = (DataObject) m_adapter.m_array.get(position);
+        DataObject Object_id = (DataObject) m_adapter.m_array.get(position);
+
+
+
+        Bundle parmetros = new Bundle();
+        parmetros.putString("Object_id", String.valueOf(Object_id));
+
+        Intent i = new Intent(this, DetailActivity.class);
+        i.putExtras(parmetros);
+        startActivity(i);
+
+
 
         // FIN - CODE5
 
